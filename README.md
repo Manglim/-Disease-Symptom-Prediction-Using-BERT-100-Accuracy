@@ -1,20 +1,47 @@
-🔬 Disease Symptom Prediction Using BERT | 100% Accuracy (Benchmark Dataset)
+# Disease Prediction Using BERT
 
-This project showcases a powerful disease prediction model built using BERT (Bidirectional Encoder Representations from Transformers) for text classification of symptoms into corresponding diseases. Leveraging a clean, structured dataset of symptom-disease mappings, the model achieves 100% accuracy on validation using optimized preprocessing, intelligent BERT tokenization, and fine-tuned hyperparameters.
+## Overview
+This project uses BERT (`bert-base-uncased`) to predict diseases from symptom descriptions in the Disease Symptom Description Dataset. It preprocesses symptom data, trains a BERT model, evaluates performance with visualizations, and predicts diseases from user-input symptoms, achieving 100% accuracy on the test set.
 
-🧠 Features:
-✅ 100% Accuracy on benchmark dataset (symptom-to-disease classification)
+## Functionality
+1. **Preprocessing**:
+   - Loads `dataset.csv`, removes invalid rows, and combines symptoms into `symptoms_text`.
+   - Encodes diseases with `LabelEncoder`.
 
-🧹 Data Preprocessing: Cleaning, tokenizing, and encoding textual symptom descriptions
+2. **Training**:
+   - Fine-tunes BERT for 3 epochs (batch size=16, lr=5e-5).
 
-🤖 BERT Integration: Using Hugging Face Transformers for deep learning-based classification
+3. **Evaluation**:
+   - Reports precision, recall, F1-score, and accuracy per epoch.
+   - Final classification report for 41 diseases.
 
-📊 Evaluation Metrics: Precision, Recall, F1-Score, and Accuracy reporting
+4. **Visualization**:
+   - Training loss curve, confusion matrix, and evaluation metrics bar plot.
 
-📈 Training & Validation Logs included with visual insights
+5. **Prediction**:
+   - Predicts disease from space-separated symptom input.
 
-🚀 Tech Stack:
-Python, PyTorch, Transformers (Hugging Face), Scikit-learn, Pandas, Numpy, Matplotlib, Google Colab
+## Frameworks and Libraries
+- **Python**: Core language.
+- **Pandas**: Data handling (`pd`).
+- **NumPy**: Numerical ops (`np`).
+- **PyTorch**: Deep learning (`torch`).
+- **Transformers**: BERT (`transformers`).
+- **Scikit-learn**: Utilities (`train_test_split`, `LabelEncoder`, metrics).
+- **Matplotlib**: Plots (`plt`).
+- **Seaborn**: Visualization (`sns`).
 
-🔍 Use Case:
-Can be used as a base model for intelligent healthcare assistants, telemedicine apps, or symptom checker tools. This framework can be expanded to include multilingual support, more complex symptom clusters, and integration with EHR systems.
+## Dataset
+- Source: `dataset.csv` from `/kaggle/input/disease-symptom-description-dataset/`.
+- Rows: 4,920 after preprocessing.
+- Columns: `Disease` (41 unique), `Symptom_1` to `Symptom_17` combined into `symptoms_text`.
+
+## Key Features
+- **BERT-Powered**: Contextual symptom analysis.
+- **Perfect Accuracy**: 1.00 across all metrics.
+- **Visual Insights**: Loss, confusion matrix, and metrics plots.
+- **Interactive**: Real-time disease prediction.
+
+## Installation
+```bash
+pip install transformers datasets torch scikit-learn matplotlib seaborn
